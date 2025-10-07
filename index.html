@@ -8,9 +8,9 @@
     <title>SIGN 25/26 - Komunitas</title>
 
     <!-- Favicon SVG Inline -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23fdfd72%22>📘</text></svg>">
+    <link rel="icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23fdfd72%22>📘</text></svg>">
 
-    <!-- Manifest untuk PWA (Tambah ke Layar Utama) -->
+    <!-- Manifest untuk PWA -->
     <link rel="manifest" href="data:application/manifest+json,{
       %22name%22:%22SIGN%2025/26%22,
       %22short_name%22:%22SIGN%22,
@@ -19,7 +19,7 @@
       %22background_color%22:%22%23f8f9fa%22,
       %22theme_color%22:%22%23fdfd72%22,
       %22icons%22:[{
-        %22src%22:%22data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23fdfd72'>📘</text></svg>%22,
+        %22src%22:%22image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23fdfd72'>📘</text></svg>%22,
         %22sizes%22:%22192x192%22,
         %22type%22:%22image/svg+xml%22
       }]
@@ -66,7 +66,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 260px;
             background: var(--sidebar-bg);
@@ -96,9 +95,21 @@
             text-align: center;
             font-size: 0.85rem;
             color: #aaa;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #555;
+        }
+
+        /* Prinsip Musyawarah */
+        .prinsip {
+            font-size: 0.85rem;
+            text-align: center;
+            color: #ccc;
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            line-height: 1.5;
         }
 
         .theme-toggle {
@@ -109,11 +120,30 @@
             border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             display: flex;
             align-items: center;
             gap: 6px;
             width: fit-content;
+        }
+
+        /* Tombol Feedback */
+        .btn-feedback {
+            display: block;
+            background: var(--accent);
+            color: #2c2c2c;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 15px 10px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 0.95rem;
+        }
+        .btn-feedback:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(253, 253, 114, 0.4);
         }
 
         .nav-links {
@@ -150,13 +180,36 @@
             box-shadow: 0 0 10px rgba(253, 253, 114, 0.5);
         }
 
+        /* Kutipan Arena Debat */
+        .debat-quote {
+            background: rgba(253, 253, 114, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 15px;
+            margin: 20px 10px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+            color: var(--sidebar-text);
+        }
+        .debat-quote i {
+            color: var(--accent);
+            margin-right: 6px;
+        }
+
+        /* Jumlah Masukan */
+        .masukan-count {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #aaa;
+            margin: 15px 0;
+            padding-top: 10px;
+            border-top: 1px solid #444;
+        }
+
         .sidebar-social {
             display: flex;
             justify-content: center;
             gap: 18px;
-            margin: 20px 0;
-            padding-top: 15px;
-            border-top: 1px solid #444;
+            margin: 15px 0;
         }
 
         .sidebar-social a {
@@ -231,7 +284,6 @@
             line-height: 1.7;
         }
 
-        /* Quote Rotatif */
         .quote-box {
             background: rgba(253, 253, 114, 0.1);
             border-left: 3px solid var(--accent);
@@ -242,18 +294,9 @@
             color: var(--text-primary);
         }
 
-        .quote-text {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
+        .quote-text { margin-bottom: 10px; font-size: 1.1rem; }
+        .quote-author { text-align: right; font-weight: 600; color: var(--accent); }
 
-        .quote-author {
-            text-align: right;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        /* Daftar Pengurus */
         .pengurus-list {
             margin-top: 20px;
             padding-left: 20px;
@@ -269,7 +312,6 @@
             color: var(--text-primary);
         }
 
-        /* Tombol */
         .btn {
             display: inline-block;
             padding: 12px 28px;
@@ -299,40 +341,31 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .nav-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .nav-links li {
-                margin: 5px;
-                width: 45%;
-            }
-            .main-content {
-                padding: 20px 15px;
-            }
-            .card {
-                padding: 20px;
-            }
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
+            .nav-links li { margin: 5px; width: 45%; }
+            .main-content { padding: 20px 15px; }
+            .card { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar Kiri -->
+    <!-- Sidebar Kiri - Diperkaya -->
     <aside class="sidebar">
         <div class="logo">
             <i class="fas fa-book"></i> SIGN 25/26
         </div>
         <p class="tagline">Berpikir Kritis, Berakhlak Islami</p>
+
+        <div class="prinsip">
+            "Menerima seluruh kritik dan saran, bermusyawarah, ambil suara terbaik, lalu wujudkan."
+        </div>
+
+        <a href="https://lawliet-noor.github.io/SIGN/" target="_blank" class="btn-feedback">
+            <i class="fas fa-comment"></i> Sampaikan Masukan!
+        </a>
 
         <button class="theme-toggle" id="themeToggle">
             <i class="fas fa-moon"></i> Mode Gelap
@@ -343,10 +376,18 @@
             <li><a href="#" class="nav-link" data-page="visimisi"><i class="fas fa-bullseye"></i> Visi & Misi</a></li>
             <li><a href="#" class="nav-link" data-page="about"><i class="fas fa-users"></i> Tentang Kami</a></li>
             <li><a href="#" class="nav-link" data-page="contact"><i class="fas fa-envelope"></i> Kontak</a></li>
-            <li><a href="https://lawliet-noor.github.io/SIGN/" target="_blank" style="color:#f0f0f0;">
-                <i class="fas fa-comment-dots"></i> Kritik & Saran
-            </a></li>
         </ul>
+
+        <!-- Kutipan Arena Debat Rotatif -->
+        <div class="debat-quote">
+            <i class="fas fa-quote-left"></i>
+            <span id="debatQuoteText">Menurut saya, Ketua itu harus bisa menjadi seperti......!</span>
+        </div>
+
+        <!-- Jumlah Masukan -->
+        <div class="masukan-count">
+            📥 <strong>127</strong> masukan telah disampaikan
+        </div>
 
         <div class="sidebar-social">
             <a href="https://instagram.com/sign_2526" target="_blank" title="Instagram">
@@ -364,7 +405,6 @@
 
     <!-- Konten Utama -->
     <main class="main-content">
-
         <!-- Home -->
         <div id="home" class="page active">
             <div class="card">
@@ -373,7 +413,6 @@
                     Komunitas yang lahir dari semangat musyawarah, keberanian intelektual, dan komitmen pada nilai-nilai islami.
                 </p>
 
-                <!-- Quote Rotatif -->
                 <div class="quote-box">
                     <div class="quote-text" id="quoteText">
                         “Dan katakanlah: ‘Beramallah kamu, maka Allah dan Rasul-Nya serta orang-orang mukmin akan melihat pekerjaanmu.’”
@@ -441,10 +480,10 @@
                     Ingin bergabung atau berdiskusi lebih lanjut? Kami terbuka untuk siapa saja yang ingin berkontribusi!
                 </p>
                 <div style="text-align: center; margin: 20px 0;">
-                    <a href="https://wa.me/6281337793779" target="_blank" class="btn">
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="mailto:K.sign2526@gmail.com" class="btn">
+                    <a href="mailto:sign2526@komunitas.id" class="btn">
                         <i class="fas fa-envelope"></i> Email
                     </a>
                 </div>
@@ -460,7 +499,7 @@
     </main>
 
     <script>
-        // === QUOTE ROTATIF ===
+        // === QUOTE INSPIRATIF (Home) ===
         const quotes = [
             {
                 text: "“Dan katakanlah: ‘Beramallah kamu, maka Allah dan Rasul-Nya serta orang-orang mukmin akan melihat pekerjaanmu.’”",
@@ -485,9 +524,22 @@
             document.getElementById('quoteText').textContent = quotes[index].text;
             document.getElementById('quoteAuthor').textContent = quotes[index].author;
         }
-
-        // Ganti quote setiap 10 detik
         setInterval(rotateQuote, 10000);
+
+        // === KUTIPAN ARENA DEBAT (Sidebar) ===
+        const debatQuotes = [
+            "Menurut saya, Ketua itu harus bisa menjadi seperti......!",
+            "Menurut saya, menjalankan program itu harus......",
+            "Saya usulkan agar diskusi rutin dibuat lebih terstruktur.",
+            "Perlu ada ruang khusus untuk anggota baru menyampaikan ide."
+        ];
+
+        function rotateDebatQuote() {
+            const index = Math.floor(Math.random() * debatQuotes.length);
+            document.getElementById('debatQuoteText').textContent = debatQuotes[index];
+        }
+        setInterval(rotateDebatQuote, 8000);
+        rotateDebatQuote(); // Jalankan sekali saat load
 
         // === NAVIGASI ===
         function showPage(pageId) {
@@ -510,7 +562,6 @@
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
-        // Cek preferensi pengguna
         if (localStorage.getItem('theme') === 'dark' || 
             (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             body.classList.add('dark-mode');
@@ -527,15 +578,6 @@
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i> Mode Gelap';
             }
         });
-
-        // === PWA: Register Service Worker (opsional ringan) ===
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(() => {
-                    // Bisa diabaikan — tetap jalan tanpa SW
-                });
-            });
-        }
     </script>
 </body>
 </html>
